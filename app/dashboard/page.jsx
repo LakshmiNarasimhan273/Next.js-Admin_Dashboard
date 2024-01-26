@@ -9,9 +9,24 @@ function Dashboardpage() {
     <div className={styles.wrapper}>
       <div className={styles.main}>
         <div className={styles.cards}>
-          <Card />
-          <Card />
-          <Card />
+          <Card
+            title="Total Users"
+            value="200"
+            count="12%"
+            info=" more than previous week"
+          />
+          <Card
+            title="Total Orders"
+            value="358"
+            count="24%"
+            info=" total orders today"
+          />
+          <Card
+            title="New Users"
+            value="126"
+            count="7%"
+            info=" than previous month"
+          />
         </div>
         <Transaction />
         <Chart title="Weekly Report" />

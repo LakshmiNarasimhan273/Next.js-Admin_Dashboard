@@ -5,6 +5,7 @@ import { Product, User } from "./models";
 import { redirect } from "next/navigation";
 import { dbConnection } from "./utils";
 import bcrypt from "bcrypt";
+import { signIn } from "../auth";
 
 export const addUser = async (formData) => {
   const { username, email, password, phone, address, isAdmin, isActive } =
@@ -142,4 +143,15 @@ export const deleteUser = async (formData) => {
     throw new Error("Failed to delete a User");
   }
   revalidatePath("/dashboard/users");
+};
+
+export const authenticate = async (formData) => {
+  const { username, password } = Object.fromEntries(formData);
+
+  try {
+    await signIn("credentials", { username, password });
+  } catch (err) {
+    console.error(err);
+    throw err;
+  }
 };

@@ -1,14 +1,13 @@
 import NextAuth from "next-auth";
-import credentials from "next-auth/providers/credentials";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { authConfig } from "./authConfig";
+import { authConfig } from "@/authconfig";
 import { User } from "./lib/models";
 import bcrypt from "bcrypt";
 import { dbConnection } from "./lib/utils";
 
 const login = async (credentials) => {
   try {
-    dbConnection();
+    await dbConnection();
     const user = await User.findOne({ username: credentials.username });
 
     if (!user) {
@@ -37,9 +36,25 @@ export const { signIn, signOut, auth } = NextAuth({
           const user = await login(credentials);
           return user;
         } catch (error) {
-          return null;
+          return { error: "Authentication error" };
         }
       },
     }),
   ],
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.username = user.username;
+        token.img = user.img;
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      if (token) {
+        session.user.username = token.username;
+        session.user.img = token.img;
+      }
+      return session;
+    },
+  },
 });

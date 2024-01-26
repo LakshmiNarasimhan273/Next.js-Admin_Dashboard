@@ -25,7 +25,7 @@ const Transaction = () => {
                   height={40}
                   className={styles.userImage}
                 />
-                Tester
+                Vinith
               </div>
             </td>
             <td>$254.02</td>
@@ -46,11 +46,11 @@ const Transaction = () => {
                   height={40}
                   className={styles.userImage}
                 />
-                Tester
+                Prakash
               </div>
             </td>
-            <td>$254.02</td>
-            <td>14.06.2023</td>
+            <td>$12.523</td>
+            <td>19.01.2024</td>
             <td>
               <span className={`${styles.status} ${styles.cancelled}`}>
                 Cancelled
@@ -67,11 +67,11 @@ const Transaction = () => {
                   height={40}
                   className={styles.userImage}
                 />
-                Tester
+                Rahul
               </div>
             </td>
-            <td>$254.02</td>
-            <td>14.06.2023</td>
+            <td>$311</td>
+            <td>14.12.2023</td>
             <td>
               <span className={`${styles.status} ${styles.done}`}>Done</span>
             </td>
@@ -86,11 +86,11 @@ const Transaction = () => {
                   height={40}
                   className={styles.userImage}
                 />
-                Tester
+                Harish
               </div>
             </td>
-            <td>$254.02</td>
-            <td>14.06.2023</td>
+            <td>$151.01</td>
+            <td>29.11.2023</td>
             <td>
               <span className={`${styles.status} ${styles.done}`}>Done</span>
             </td>
