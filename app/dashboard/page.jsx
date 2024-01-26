@@ -14,7 +14,7 @@ function Dashboardpage() {
           <Card />
         </div>
         <Transaction />
-        <Chart />
+        <Chart title="Weekly Report" />
       </div>
       <div className={styles.side}>
         <Rightbar />

@@ -56,10 +56,10 @@ const data = [
   },
 ];
 
-const Chart = () => {
+const Chart = (props) => {
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Weekly Report</h2>
+      <h2 className={styles.title}>{props.title}</h2>
       <ResponsiveContainer width="100%" height="90%">
         <LineChart
           width={500}
